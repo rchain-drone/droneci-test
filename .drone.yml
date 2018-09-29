@@ -1,0 +1,11 @@
+clone:
+  git:
+    image: plugins/git:next
+
+pipeline:
+  build:
+    image: rchain/buildenv:latest
+    commands:
+      - env
+    volumes:
+      - /var/cache/rchain-build:/var/cache/rchain-build
