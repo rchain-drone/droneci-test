@@ -1,13 +1,13 @@
 clone:
-  git:
+  git-clone:
     image: rchain/buildenv:latest
     commands: |
-        set -ex
-        git clone -b $DRONE_BRANCH $DRONE_REMOTE_URL .
-        if [ x$DRONE_PULL_REQUEST != x ]; then
-            git fetch origin refs/pull/$DRONE_PULL_REQUEST/head
-            EMAIL=nobody git merge --no-edit FETCH_HEAD
-        fi
+      set -ex
+      git clone -b ${DRONE_TAG:-$DRONE_BRANCH} $DRONE_REMOTE_URL .
+      if [ x$DRONE_PULL_REQUEST != x ]; then
+          git fetch origin refs/pull/$DRONE_PULL_REQUEST/head
+          EMAIL=ci git merge --no-edit FETCH_HEAD
+      fi
 
 pipeline:
   build:
