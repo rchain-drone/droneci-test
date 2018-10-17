@@ -2,6 +2,8 @@ clone:
   git:
     image: rchain/buildenv:latest
     commands:
+      - pwd
+      - find
       - ./git-clone
 
 pipeline:
