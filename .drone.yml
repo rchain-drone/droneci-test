@@ -1,11 +1,9 @@
 clone:
   git:
-    image: plugins/git:next
+    image: rchain/buildenv:latest
 
 pipeline:
   build:
     image: rchain/buildenv:latest
     commands:
-      - env
-    volumes:
-      - /var/cache/rchain-build:/var/cache/rchain-build
+      - env | sort
