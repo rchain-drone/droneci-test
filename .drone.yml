@@ -2,14 +2,12 @@ clone:
   git:
     image: rchain/buildenv:latest
     commands: |
-    bash -c '
         set -e
         git clone -b $DRONE_BRANCH $DRONE_REMOTE_URL
-        if [[ -n $DRONE_PULL_REQUEST ]]; then
+        if [ x$DRONE_PULL_REQUEST = x ]; then
             git fetch origin refs/pull/$DRONE_PULL_REQUEST/head
             git merge --no-edit FETCH_HEAD
         fi
-    '
 
 pipeline:
   build:
