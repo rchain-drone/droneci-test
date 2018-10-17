@@ -6,4 +6,4 @@ pipeline:
   build:
     image: rchain/buildenv:latest
     commands:
-      - env
+      - env | sort
