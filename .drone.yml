@@ -1,6 +1,8 @@
 clone:
   git:
     image: rchain/buildenv:latest
+    commands:
+      - ./git-clone
 
 pipeline:
   build:
