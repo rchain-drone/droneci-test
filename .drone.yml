@@ -1,7 +1,7 @@
 clone:
   git:
     image: rchain/buildenv:latest
-    commands: bash -c '
+    commands: | bash -c '
         set -e
         git clone -b $DRONE_BRANCH $DRONE_REMOTE_URL
         if [[ -n $DRONE_PULL_REQUEST ]]; then
